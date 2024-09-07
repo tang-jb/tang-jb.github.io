@@ -1,1 +1,59 @@
 
+
+### 
+
+0.
+sudo service ssh restart
+
+>
+1. Your SSH service is down
+sudo service ssh status
+
+2. You have the wrong credential
+grep Port /etc/ssh/sshd_config
+
+3. The port you’re trying to use is closed
+sudo lsof -i -n -P | grep LISTEN
+
+4. SSH isn’t installed on your server
+ps -e |grep ssh
+
+5. Firewall settings are preventing an SSH connection
+sudo iptables-save # display IPv4 rules
+sudo ufw allow 22/tcp
+
+6.
+ssh -vvv -i id_rsa [youruser]@[yourLinode]
+
+
+7.
+
+7.1 Generate your key.
+
+ssh-keygen
+7.2 Configure ssh to use the key.
+
+vim ~/.ssh/config
+Your config file should have something similar to the following:
+
+Host SERVERNAME
+Hostname ip-or-domain-of-server
+User USERNAME
+PubKeyAuthentication yes
+IdentityFile ./path/to/key
+You can add IdentitiesOnly yes to ensure ssh uses the specified IdentityFile and no other keyfiles during authentication. Setting IdentitiesOnly prevents failed authentications from occurring, when ssh would otherwise attempt to login with multiple keys. Setting this is also considered more secure, as you're not leaking information about other keys you have installed, and maintaining separation of your keys between different levels of access.
+
+7.3 Copy your key to your server.
+
+ssh-copy-id -i /path/to/key.pub SERVERNAME`
+For example, ssh-copy-id -i ~/.ssh/id_res.pub -p 22 user@1.1.1.1
+
+7.4 Troubleshooting
+
+use "-vvv" option
+Make sure the server has your PUBLIC key (.pub).
+Make sure your IdentiyFile points to your PRIVATE key.
+Make sure your .ssh directory has 700 and the files within are 600 permissions.
+ssh-keygen will create files and directories for you with the proper permissions
+tail -f /var/log/auth.log (on the server) and monitor errors when you attempt to login
+If you have many key files, try IdentitiesOnly yes to limit the authentication to use the single, specified key.
