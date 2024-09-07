@@ -57,3 +57,29 @@ Make sure your .ssh directory has 700 and the files within are 600 permissions.
 ssh-keygen will create files and directories for you with the proper permissions
 tail -f /var/log/auth.log (on the server) and monitor errors when you attempt to login
 If you have many key files, try IdentitiesOnly yes to limit the authentication to use the single, specified key.
+
+
+
+
+8. Make sure you have a key that is being used
+If you have GitHub Desktop installed, you can use it to clone repositories and not deal with SSH keys.
+
+8.1 If you are using Git Bash, turn on ssh-agent:
+
+# start the ssh-agent in the background
+$ eval "$(ssh-agent -s)"
+> Agent pid 59566
+If you are using another terminal prompt, such as Git for Windows, turn on ssh-agent:
+
+# start the ssh-agent in the background
+$ eval $(ssh-agent -s)
+> Agent pid 59566
+Note: The eval commands above start ssh-agent manually in your environment. These commands may fail if ssh-agent already runs as a background system service. If that happens, we recommend you check the relevant documentation for your environment.
+
+8.2 Verify that you have a private key generated and loaded into SSH.
+
+$ ssh-add -l -E sha256
+> 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
+The ssh-add command should print out a long string of numbers and letters. If it does not print anything, you will need to generate a new SSH key and associate it with GitHub.
+
+Tip: On most systems the default private keys (~/.ssh/id_rsa and ~/.ssh/identity) are automatically added to the SSH authentication agent. You shouldn't need to run ssh-add path/to/key unless you override the file name when you generate a key.
