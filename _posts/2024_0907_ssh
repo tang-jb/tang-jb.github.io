@@ -18,6 +18,11 @@ PasswordAuthentication no
 #启用密钥验证
 
 PubkeyAuthentication yes
+
+重启服务生效
+
+sudo service ssh restart
+
 ### 
 
 0.
