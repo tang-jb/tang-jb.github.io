@@ -1,5 +1,23 @@
 
+强制SSH使用密钥认证禁止密码登录
+需求#
+工控机放在车上做了内网穿透，ssh端口暴露在公网下有安全隐患。
+复杂密码则现场登录不便，故希望禁用ssh密码登录仅允许公钥认证。
 
+方法#
+修改如下文件
+
+sudo vi /etc/ssh/sshd_config
+
+
+
+#禁用密码验证
+
+PasswordAuthentication no
+
+#启用密钥验证
+
+PubkeyAuthentication yes
 ### 
 
 0.
