@@ -1,3 +1,9 @@
+实际采用了重装系统，注意要清理干净再重装。
+即先停进程，再purge remove，然后安装。否则多次失败。
+卸载SSH：apt-get --purge remove openssh-server --purge 指明这个包裹应该被完全清除
+
+
+以下方法都无效：
 
 强制SSH使用密钥认证禁止密码登录
 需求#
