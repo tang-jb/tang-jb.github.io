@@ -19,3 +19,34 @@ Allow all to <Location /admin>
 
 Allow from 192.168.8.114  #a certain computer
 Allow from 192.168.8.*    #subnet
+
+
+---
+sudo usermod -aG lpadmin username
+sudo systemctl restart cups
+
+sudo ufw allow 631/tcp
+
+sudo apt install avahi-daemon -y
+sudo systemctl start avahi-daemon
+sudo systemctl enable avahi-daemon
+
+
+
+
+----
+[printers]
+   comment = All printers
+   path = /var/spool/samba
+   printable = yes
+   guest ok = no
+   read only = yes
+   create mask = 0700
+   browseable = yes
+   [print$]
+   comment = Printer Drivers
+   path = /etc/samba/drivers
+   browseable = yes
+   guest ok = no
+   read only = yes
+   create mask = 0700
