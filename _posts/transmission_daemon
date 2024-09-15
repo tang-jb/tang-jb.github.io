@@ -10,3 +10,42 @@ Copy
 Alternatively, if you are running Ubuntu server or just don’t need the GUI you can install the daemon version of Transmission by using the following. command.
 
 sudo apt install transmission-daemon
+
+
+
+sudo nano /etc/transmission-daemon/settings.json
+Copy
+4. With the file open, you will want to ensure that RPC is enabled. In our case, it already was enabled.
+
+You can verify it is enabled by searching for the following setting and ensuring it is set to “true“.
+
+    "rpc-enabled": true,
+
+
+For example, if you want to whitelist “192.168.0.123“, you would use the following.
+
+    "rpc-whitelist": "127.0.0.1,192.168.0.123",
+Copy
+6. Alternatively, you can disable the whitelist altogether by finding the option below and setting the value to “false“.
+
+
+    "rpc-whitelist-enabled": true
+
+
+
+. Your next step is to force a reload on Transmission so that it will pull in the configuration changes. You do not want to restart the service as it will reset your changes.
+
+sudo systemctl reload transmission-daemon
+
+
+
+
+
+10. If you are using Transmission, you will likely want it to start up in the background automatically.
+
+The first thing we need to do is create a new user called “transmission“. You will need to ensure the directories you want to save your torrents to can be accessed by this user.
+
+sudo adduser --system --group transmission
+
+
+
