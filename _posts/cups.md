@@ -1,3 +1,5 @@
+https://post.smzdm.com/p/al8523zo/
+
 sudo systemctl restart cups
 
 remote access cups through web
