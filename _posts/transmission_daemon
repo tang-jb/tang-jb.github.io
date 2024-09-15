@@ -1,0 +1,12 @@
+sudo apt install transmission-daemon
+
+
+You now must decide whether you want the desktop UI or just the web interface.
+
+To install Transmission with its desktop interface, use the following command.
+
+sudo apt install transmission
+Copy
+Alternatively, if you are running Ubuntu server or just don’t need the GUI you can install the daemon version of Transmission by using the following. command.
+
+sudo apt install transmission-daemon
