@@ -1,0 +1,10 @@
+解决方案:  使用命令进行磁盘扩容命令  
+lvextend -L 10G /dev/mapper/ubuntu–vg-ubuntu–lv //增大或减小至19G
+lvextend -L +10G /dev/mapper/ubuntu–vg-ubuntu–lv //增加10G
+lvreduce -L -10G /dev/mapper/ubuntu–vg-ubuntu–lv //减小10G
+lvresize -l +100%FREE /dev/mapper/ubuntu–vg-ubuntu–lv //按百分比扩    
+
+1> 使用如下命令，将/tmp增加60G 
+lvextend -L +60G /dev/mapper/ubuntu–vg-ubuntu–lv  
+2> 执行磁盘调整，使之生效  
+resize2fs /dev/mapper/ubuntu–vg-ubuntu–lv
