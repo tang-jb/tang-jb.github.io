@@ -123,7 +123,7 @@ apt-get install hplip
 
 hp-plugin
 
-输入y回车，接受协议输入y回车，接受协议(hplip-setup -i)
+输入y回车，接受协议输入y回车，接受协议(hp-setup -i)
 (lsusb)
 
 10、安装打印机被发现服务：
