@@ -50,3 +50,96 @@ sudo systemctl enable avahi-daemon
    guest ok = no
    read only = yes
    create mask = 0700
+
+
+   ----
+   三、安装打印机服务器
+
+我的打印机是HP 1010，型号比较老。
+
+1、开粘命令：
+
+安装cups打印服务：
+
+apt-get install cups
+
+安装完后，开始参数配置（我也不懂），在这里鼠标不管用，所以不用点，用键盘调位置：
+
+nano /etc/cups/cupsd.conf
+
+2、首先将Listen localhost:631修改为Listen 0.0.0.0:631
+
+3、将Browsing No改成Browsing On
+
+4、在以下四段增加Allow all
+
+# Restrict access to the server...
+
+  Order allow,deny
+
+  Allow all
+
+# Restrict access to the admin pages...
+
+  Order allow,deny
+
+  Allow all
+
+# Restrict access to configuration files...
+
+  AuthType Default
+
+  Require user @SYSTEM
+
+  Order allow,deny
+
+  Allow all
+
+# Restrict access to log files...
+
+  AuthType Default
+
+  Require user @SYSTEM
+
+  Order allow,deny
+
+ Allow all
+
+5、按Ctrl+X，选择保存（Y），再按回车就回到命令行了；
+
+6、重启CUPS服务：
+
+service cups restart
+
+7、安装打印机驱动，没有这一步，在浏览器里是看不到打印机的：
+
+apt-get install hplip
+
+输入d回车下载输入d回车下载
+
+8、把打印机接盒子靠近HDMI那个USB口上，打印机开机；
+
+9、安装hp-plugin：
+
+hp-plugin
+
+输入y回车，接受协议输入y回车，接受协议(hplip-setup -i)
+(lsusb)
+
+10、安装打印机被发现服务：
+
+apt-get -y install avahi-daemon avahi-discover libnss-mdns
+
+systemctl restart avahi-daemon
+
+service cups restart
+
+11、最后设置下开机默认启动（好像不设置也可以开机启动）：
+
+systemctl enable cups
+
+systemctl enable avahi-daemon
+
+12、到这一步，所有安装就完成了，再次输入下面命令退出putty：
+
+exit
