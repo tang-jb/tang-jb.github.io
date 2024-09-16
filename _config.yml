@@ -5,7 +5,7 @@
 # Name of your site (displayed in the header)
 name: "test  's blog"
 # Short bio or description (displayed in the header)
-description: "个人技术公众号：程序员柠檬  分享编程资源 | 学习路线"
+description: "日常记录 常用模块"
 
 #
 # Flags below are optional
@@ -63,10 +63,10 @@ disqus: # fromendworld
 
 # Gitalk
 gitalk:
-  clientID: Ov23liFTx7Prr6Aeaqbn
-  clientSecret: 8d2b165401289395ab666e34e340cd44ebfd821f
-  repo: lemonchann.github.io
-  owner: lemonchann
+  clientID: Ov23liz9wmJ6VeyOBWf8
+  clientSecret: 6546a613b520f8eff459eb591f28ad3e9861f9f9
+  repo: tang-jb.github.io
+  owner: tang-jb
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 #google_analytics: 
