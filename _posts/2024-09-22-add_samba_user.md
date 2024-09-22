@@ -1,4 +1,4 @@
-如何在Linux中向Samba添加删除用户
+[如何在Linux中向Samba添加删除用户](https://www.cnblogs.com/a5idc/p/13533610.html)
 我们先讨论如何向Samba添加新用户。首先，创建一个新的用户账户，就像在任何Linux系统中一样。在本例中，我们创建一个名为"joe"的新用户账户。
 ```
 $ adduser joe
