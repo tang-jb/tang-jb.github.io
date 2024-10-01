@@ -59,4 +59,14 @@ browsable = yes
 ```
 apt install cups
 
+apt install hplip
+hp-plugin -i
+lsusb
+
+apt -y install avahi-daemon avahi-discover libnss-mdns
+
+systemctl enable cups
+systemctl avahi-daemon
+
+
 ```
