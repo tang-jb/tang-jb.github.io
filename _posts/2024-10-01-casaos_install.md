@@ -17,13 +17,13 @@
 用浏览器首次登录casaos需要设置casaos的用户密码。选择与linux同名用户。
 
 ### 3、设置samba
-samba系统已经安装，需要设置一下。因为本系统会自动把插入的u盘挂载到/media/xxx/ulabel下，
-所以预先设定u盘label为z，这样固定挂载到/media/xxx/z/下。
-
+samba系统已经安装，需要设置一下。因为本系统会自动把插入的u盘挂载到/media/devmon/ulabel下，
+所以预先设定u盘label为z，这样固定挂载到/media/devmon/z/下。
+修改/etc/samba下smb.conf,在末尾添加u盘的设置。
 ```
 [hole]
-Comment = 2nd Shared U-disk folder
-Path = /media/hole
+Comment = Shared U-disk folder
+Path = /media/devmon/z
 Browseable = yes
 Writeable = yes
 only guest = no
@@ -31,6 +31,26 @@ create mask = 0777
 directory mask = 0777
 Public = yes
 Guest ok = yes
+
+```
+sudo systemctl restart smb
+习惯用vi，所以顺手安装了个vim，35MB
+```
+sudo apt-get update
+sudo apt install vim
+```
+需要添加samba用户，即把某linux用户添加到samba组中
+```
+sudo smbpasswd -a x
+
+[documents]
+comment = Departmental documents share
+path = /srv/documents
+valid users = joe
+public = no
+writable = yes
+browsable = yes
+
 
 ```
 
