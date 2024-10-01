@@ -1,5 +1,5 @@
 玩客云：
-
+[来源](https://post.smzdm.com/p/al8523zo/)
 ### 1、烧录底包，安装linux
 利用芯片厂家的烧录工具**burn**
 烧录 **arm_bian.img**
@@ -55,3 +55,8 @@ browsable = yes
 ```
 
 ### 4、安装 打印机 hplip
+
+```
+apt install cups
+
+```
