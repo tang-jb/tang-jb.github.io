@@ -66,7 +66,7 @@ lsusb
 apt -y install avahi-daemon avahi-discover libnss-mdns
 
 systemctl enable cups
-systemctl avahi-daemon
+systemctl enable avahi-daemon
 
 
 ```
