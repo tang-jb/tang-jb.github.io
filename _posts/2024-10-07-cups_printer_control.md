@@ -5,6 +5,7 @@ use cups cli control the printer to print files
 
 
 ```
+lp -P listPages
 $ lpstat -p printer-name -l
 $ lpoptions -d printer-name
 $ lpstat -p printer-name
@@ -29,3 +30,13 @@ $ lpstat [-d] [-p] printer-name [-l] [-t]
 
 ```lp -n 5 filename.pdf```
 这个命令会打印文件filename.pdf的前5页。
+
+```
+
+复制
+# 查看打印队列状态
+lpstat -o
+
+# 取消错误的打印任务
+cancel -a
+```
