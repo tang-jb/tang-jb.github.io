@@ -19,6 +19,7 @@ systemctl restart smb.service
 其中7个事业部之间的访问需要进行隔离，本事业部的同事只能访问自己事业部的文件夹，而财务内控团队的同事不受此限制（需要由访问、下载等权限）
 
 smb.conf配置文件添加一下配置信息
+```
 
 [public]  #财务部
 comment = FinancialDepartment   #
@@ -244,3 +245,4 @@ allwo hosts = 网段 except IP
 deny hosts------设定只有此网段/IP的用户不能访问共享资源
 allow hosts=本网段指定IP指定IP
 deny hosts=指定IP本网段指定I
+```
