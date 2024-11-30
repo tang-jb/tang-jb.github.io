@@ -16,6 +16,7 @@ First, edit the workgroup parameter in the [global] section of /etc/samba/smb.co
 workgroup = EXAMPLE
 Create a new section at the bottom of the file, or uncomment one of the examples, for the directory you want to share:
 
+'''
 [share]
     comment = Ubuntu File Server Share
     path = /srv/samba/share
@@ -23,6 +24,8 @@ Create a new section at the bottom of the file, or uncomment one of the examples
     guest ok = yes
     read only = no
     create mask = 0755
+
+'''
 comment
 A short description of the share. Adjust to fit your needs.
 
@@ -46,11 +49,17 @@ Determines the permissions that new files will have when created.
 Create the directory
 Now that Samba is configured, the directory needs to be created and the permissions changed. From a terminal, run the following commands:
 
+'''
 sudo mkdir -p /srv/samba/share
 sudo chown nobody:nogroup /srv/samba/share/
+'''
+
 The -p switch tells mkdir to create the entire directory tree if it doesn’t already exist.
 
 Enable the new configuration
 Finally, restart the Samba services to enable the new configuration by running the following command:
 
+'''
 sudo systemctl restart smbd.service nmbd.service
+'''
+
