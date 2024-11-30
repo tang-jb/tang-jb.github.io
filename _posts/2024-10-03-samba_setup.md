@@ -16,7 +16,7 @@ First, edit the workgroup parameter in the [global] section of /etc/samba/smb.co
 workgroup = EXAMPLE
 Create a new section at the bottom of the file, or uncomment one of the examples, for the directory you want to share:
 
-'''
+''''
 [share]
     comment = Ubuntu File Server Share
     path = /srv/samba/share
@@ -25,7 +25,7 @@ Create a new section at the bottom of the file, or uncomment one of the examples
     read only = no
     create mask = 0755
 
-'''
+''''
 comment
 A short description of the share. Adjust to fit your needs.
 
