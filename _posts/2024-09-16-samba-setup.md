@@ -27,3 +27,18 @@ sudo systemctl enbale smbd
 sudo useradd -m x
 sudo passwd x 
 ```
+===============================
+```
+[z]
+Comment = U-disk folder
+Path = /media/z
+browseable = yes
+read only = no
+create mask = 0755
+Guest ok = yes
+```
+```
+mkdir -p /media/z
+chown nobody:nogroup /media/z
+sudo systemctl restart smbd.service nmbd.service
+```
