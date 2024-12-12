@@ -42,3 +42,8 @@ mkdir -p /media/z
 chown nobody:nogroup /media/z
 sudo systemctl restart smbd.service nmbd.service
 ```
+```
+
+chmod ugo+rwx /home/x
+
+```
