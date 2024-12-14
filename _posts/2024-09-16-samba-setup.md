@@ -21,8 +21,8 @@ Public = yes
 Guest ok = yes
 ```
 ```
-sudo systemctl restart smbd
-sudo systemctl enbale smbd
+sudo systemctl restart smbd nmbd
+sudo systemctl enbale smbd nmbd
 
 sudo useradd -m x
 sudo passwd x 
